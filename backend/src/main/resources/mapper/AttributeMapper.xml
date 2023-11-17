@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.sfcoder.mapper.AttributeMapper">
+
+    <resultMap id="BaseResultMap" type="cn.sfcoder.po.Attribute">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="userid" column="userId" jdbcType="INTEGER"/>
+            <result property="windows" column="windows" jdbcType="INTEGER"/>
+            <result property="linux" column="linux" jdbcType="INTEGER"/>
+            <result property="mac" column="mac" jdbcType="INTEGER"/>
+            <result property="android" column="android" jdbcType="INTEGER"/>
+            <result property="ios" column="ios" jdbcType="INTEGER"/>
+            <result property="harmony" column="harmony" jdbcType="INTEGER"/>
+            <result property="performance" column="performance" jdbcType="INTEGER"/>
+            <result property="functional" column="functional" jdbcType="INTEGER"/>
+            <result property="bug" column="bug" jdbcType="INTEGER"/>
+            <result property="performanceability" column="performanceAbility" jdbcType="DOUBLE"/>
+            <result property="bugability" column="bugAbility" jdbcType="DOUBLE"/>
+            <result property="functionalability" column="functionalAbility" jdbcType="DOUBLE"/>
+            <result property="credibility" column="credibility" jdbcType="DOUBLE"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,userId,windows,
+        linux,mac,android,
+        ios,harmony,performance,
+        functional,bug,performanceAbility,
+        bugAbility,functionalAbility,credibility
+    </sql>
+</mapper>
