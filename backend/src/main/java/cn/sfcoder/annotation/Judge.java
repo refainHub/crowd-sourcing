@@ -19,4 +19,5 @@ public @interface Judge {
     double pow() default 1;
 
     String desc() default "无说明";
+
 }

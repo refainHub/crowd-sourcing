@@ -11,21 +11,17 @@ import lombok.Data;
  * 
  * @TableName code
  */
-@TableName(value ="code")
 @Data
-public class Code implements Serializable {
-    /**
-     * 
-     */
-    @TableId(type = IdType.AUTO)
+@TableName("code")
+public class Code {
+
+    @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    /**
-     * 
-     */
     @TableField("code")
     private String code;
 
-    @TableField(exist = false)
-    private static final long serialVersionUID = 1L;
+    public Code(String code) {
+        this.code = code;
+    }
 }

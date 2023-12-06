@@ -1,10 +1,23 @@
 package cn.sfcoder.service.impl;
 
+import cn.sfcoder.dto.UserDTO;
+import cn.sfcoder.mapper.AttributeMapper;
 import cn.sfcoder.mapper.CodeMapper;
 import cn.sfcoder.mapper.UserMapper;
+import cn.sfcoder.po.Attribute;
+import cn.sfcoder.po.User;
+import cn.sfcoder.po.enums.UserIdentity;
 import cn.sfcoder.service.UserService;
+import cn.sfcoder.util.Md5Util;
+import cn.sfcoder.vo.ResponseVO;
+import cn.sfcoder.vo.http.UserHttpStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 /**
  * @Author: refain
@@ -36,7 +49,7 @@ public class UserServiceImpl implements UserService {
             // 注册入user表格
             String salt = UUID.randomUUID().toString();
             userPO.setSalt(salt);
-            userPO.setPasswd(MD5Util.md5(userPO.getPasswd(), salt));
+            userPO.setPasswd(Md5Util.md5(userPO.getPasswd(), salt));
             userMapper.insert(userPO);
             if (userPO.getUserIdentity().equals(UserIdentity.WORKER)) {
                 // 注册入attribute表格
@@ -59,7 +72,7 @@ public class UserServiceImpl implements UserService {
             return ResponseVO.fail(UserHttpStatus.USER_NOT_EXIST);
         }
         User user = users.get(0);
-        if (!MD5Util.verify(passwd, user.getSalt(), user.getPasswd())) {
+        if (!Md5Util.verify(passwd, user.getSalt(), user.getPasswd())) {
             return ResponseVO.fail(UserHttpStatus.PASSWD_ERROR);
         } else {
             // 生成token

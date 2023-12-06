@@ -4,15 +4,15 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.sfcoder.mapper.UserMapper">
 
-    <resultMap id="BaseResultMap" type="generator.domain.User">
+    <resultMap id="BaseResultMap" type="cn.sfcoder.po.User">
             <id property="id" column="id" jdbcType="INTEGER"/>
             <result property="email" column="email" jdbcType="VARCHAR"/>
             <result property="passwd" column="passwd" jdbcType="VARCHAR"/>
             <result property="salt" column="salt" jdbcType="VARCHAR"/>
-            <result property="identity" column="identity" jdbcType="INTEGER"/>
+            <result property="userIdentity" column="identity" jdbcType="INTEGER"/>
             <result property="name" column="name" jdbcType="VARCHAR"/>
             <result property="ip" column="ip" jdbcType="VARCHAR"/>
-            <result property="lastlogin" column="lastLogin" jdbcType="BIGINT"/>
+            <result property="lastLogin" column="lastLogin" jdbcType="BIGINT"/>
     </resultMap>
 
     <sql id="Base_Column_List">
