@@ -24,8 +24,8 @@ mybatis-plus:
   mapper-locations: classpath*:mapper/*Xml.xml
 
 token:
-  secret-key: 12345678
-  ttl: 3600000
+  secret-key: 12345678     #密钥
+  ttl: 3600000            #失效时间（分钟）
 
 file:
   task_decr: /file/publish/description

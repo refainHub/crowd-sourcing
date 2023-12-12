@@ -7,4 +7,5 @@ public interface DTO {
     PO toPO();
 
     VO toVO();
+
 }
