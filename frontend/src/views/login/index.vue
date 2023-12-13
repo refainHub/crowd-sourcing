@@ -30,7 +30,7 @@
           ref="password"
           v-model="loginForm.password"
           :type="passwordType"
-          placeholder="Password"
+          placeholder="请输入密码"
           name="password"
           tabindex="2"
           auto-complete="on"
@@ -41,11 +41,11 @@
         </span>
       </el-form-item>
 
-      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">Login</el-button>
+      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="login">登录</el-button>
 
       <div class="tips">
-        <span style="margin-right:20px;">username: admin</span>
-        <span> password: any</span>
+        <span><el-link href="#/register" target="_self">没有账号？点击注册</el-link></span>
+        <span><el-link style="float: right" href="#/" target="_self">以访客身份访问</el-link></span>
       </div>
 
     </el-form>
@@ -54,28 +54,30 @@
 
 <script>
 import { validUsername } from '@/utils/validate'
+import request from '@/utils/request'
+
 
 export default {
   name: 'Login',
   data() {
     const validateUsername = (rule, value, callback) => {
       if (!validUsername(value)) {
-        callback(new Error('Please enter the correct user name'))
+        callback(new Error('请输入正确的邮箱格式'))
       } else {
         callback()
       }
     }
     const validatePassword = (rule, value, callback) => {
       if (value.length < 6) {
-        callback(new Error('The password can not be less than 6 digits'))
+        callback(new Error('密码应大于6位'))
       } else {
         callback()
       }
     }
     return {
       loginForm: {
-        username: 'admin',
-        password: '111111'
+        username: '',
+        password: ''
       },
       loginRules: {
         username: [{ required: true, trigger: 'blur', validator: validateUsername }],
@@ -105,18 +107,30 @@ export default {
         this.$refs.password.focus()
       })
     },
-    handleLogin() {
+    login() {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
-          this.loading = true
-          this.$store.dispatch('user/login', this.loginForm).then(() => {
-            this.$router.push({ path: this.redirect || '/' })
-            this.loading = false
-          }).catch(() => {
+          request({
+            method: 'post',
+            url: '/crowd-sourcing/user/login',
+            data: {
+              email: this.loginForm.username,
+              password: this.loginForm.password
+            }
+          }).then(res => {
+            this.loading = true
+            const uid = res.data[0].id
+
+            const attribute=res.data[0].lastLogin
+            this.$store.commit('user/SET_FIRST',attribute !== null)
+
+            this.$store.commit('user/SET_ID', uid)
+            this.$store.commit('user/SET_IDENTITY', res.data[0].userIdentity)
+            this.$router.push({ path: '/table' })
             this.loading = false
           })
         } else {
-          console.log('error submit!!')
+          this.$message({ type: 'error', message: '请输入正确的格式！', duration: 1000 })
           return false
         }
       })
