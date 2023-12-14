@@ -68,19 +68,19 @@ public class UserController {
         return userService.login(userDTO);
     }
 
-    @CheckStatus(identity = UserIdentity.WORKER)
-    @PostMapping("/init")
-    public ResponseVO init(@RequestBody AttributeVO attributeVO) {
-        return attributeService.init(attributeVO.toDTO());
-    }
-
-    @GetMapping("/getRules")
-    public ResponseVO getRules() {
-        return ruleService.getRules();
-    }
-
-    @PostMapping("/setRules")
-    public ResponseVO setRules(@RequestBody RuleVOS ruleVOS) {
-        return ruleService.setRules(ruleVOS.getRuleVOS());
-    }
+//    @CheckStatus(identity = UserIdentity.WORKER)
+//    @PostMapping("/init")
+//    public ResponseVO init(@RequestBody AttributeVO attributeVO) {
+//        return attributeService.init(attributeVO.toDTO());
+//    }
+//
+//    @GetMapping("/getRules")
+//    public ResponseVO getRules() {
+//        return ruleService.getRules();
+//    }
+//
+//    @PostMapping("/setRules")
+//    public ResponseVO setRules(@RequestBody RuleVOS ruleVOS) {
+//        return ruleService.setRules(ruleVOS.getRuleVOS());
+//    }
 }
