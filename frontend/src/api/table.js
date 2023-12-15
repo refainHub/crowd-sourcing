@@ -4,7 +4,7 @@ import { getIdentity } from '@/utils/auth'
 export function getAllTask(params) {
   const identity = getIdentity()
 
-  const url = identity === '众包工人' ? '/collect/task/recommendTask' : '/collect/task/allTask'
+  const url = identity === '众包工人' ? '/task/recommendTask' : '/task/allTask'
 
   return request({
     url: url,
@@ -15,7 +15,7 @@ export function getAllTask(params) {
 
 export function checkIfShown(userId, taskId) {
   return request({
-    url: '/collect/task/ifShown',
+    url: '/task/ifShown',
     method: 'get',
     params: {
       userId: userId,
@@ -27,7 +27,7 @@ export function checkIfShown(userId, taskId) {
 export function partTask(userId, taskId) {
   console.log(userId)
   return request({
-    url: '/collect/work/part',
+    url: '/work/part',
     method: 'post',
     data: {
       userId: userId,
@@ -38,7 +38,7 @@ export function partTask(userId, taskId) {
 
 export function getMyTask(userId, workstatus) {
   return request({
-    url: '/collect/task/searchFinishedTask',
+    url: '/task/searchFinishedTask',
     method: 'get',
     params: {
       userId: userId,
@@ -49,7 +49,7 @@ export function getMyTask(userId, workstatus) {
 
 export function findTaskByTaskId(userId, taskId) {
   return request({
-    url: '/collect/task/info',
+    url: '/task/info',
     method: 'get',
     params: {
       userId: userId,
@@ -61,7 +61,7 @@ export function findTaskByTaskId(userId, taskId) {
 export function selectTaskByLabel(tag, if_finished, name) {
 
   const identity = getIdentity()
-  const url = name !== '' ? '/collect/task/selectTaskByLabel' : (identity === '众包工人' ? '/collect/task/recommendTaskByLabel' : '/collect/task/selectTaskByLabel')
+  const url = name !== '' ? '/task/selectTaskByLabel' : (identity === '众包工人' ? '/task/recommendTaskByLabel' : '/task/selectTaskByLabel')
 
   return request({
     url: url,
@@ -76,7 +76,7 @@ export function selectTaskByLabel(tag, if_finished, name) {
 
 export function searchFinishedTask(userId, workStatus) {
   return request({
-    url: '/collect/task/searchFinishedTask',
+    url: '/task/searchFinishedTask',
     method: 'get',
     params: {
       userId: userId,
@@ -87,7 +87,7 @@ export function searchFinishedTask(userId, workStatus) {
 
 export function checkWhetherPartTheTask(userId, taskId) {
   return request({
-    url: '/collect/task/ifPart',
+    url: '/task/ifPart',
     method: 'get',
     params: {
       userId: userId,
@@ -98,7 +98,7 @@ export function checkWhetherPartTheTask(userId, taskId) {
 
 export function searchPublishedTask(userId) {
   return request({
-    url: '/collect/task/searchPublishedTask',
+    url: '/task/searchPublishedTask',
     method: 'get',
     params: {
       userId: userId

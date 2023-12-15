@@ -21,7 +21,7 @@ mybatis-plus:
   typeEnumsPackage: com.collect.po.enums
   configuration:
     default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
-  mapper-locations: classpath*:mapper/*Xml.xml
+  mapper-locations: classpath*:mapper/*Mapper.xml
 
 token:
   secret-key: 12345678     #密钥

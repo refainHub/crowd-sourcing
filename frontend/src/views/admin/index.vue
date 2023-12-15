@@ -36,7 +36,7 @@ export default {
   created() {
     request({
       method: 'get',
-      url: '/collect/user/getRules',
+      url: '/user/getRules',
     }).then(res => {
       this.functions = res.data
     })
@@ -54,7 +54,7 @@ export default {
     console.log('wndmd')
     request({
       method: 'get',
-      url: '/collect/user/getRules'
+      url: '/user/getRules'
     }).then(res => {
       this.functions = res.data
       console.log(res)
@@ -85,7 +85,7 @@ export default {
       this.ruleVOS.push(selected)
       request({
         method: 'post',
-        url: '/collect/user/setRules',
+        url: '/user/setRules',
         data: { ruleVOS: this.ruleVOS }
       })
       location.reload()

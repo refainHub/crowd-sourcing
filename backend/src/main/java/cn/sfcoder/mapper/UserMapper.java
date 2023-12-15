@@ -3,6 +3,8 @@ package cn.sfcoder.mapper;
 
 import cn.sfcoder.po.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 /**
 * @author Lenovo
@@ -10,10 +12,10 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 * @createDate 2023-11-17 22:35:58
 * @Entity generator.domain.User
 */
+
+
+@Repository
+@Mapper
 public interface UserMapper extends BaseMapper<User> {
 
 }
-
-
-
-

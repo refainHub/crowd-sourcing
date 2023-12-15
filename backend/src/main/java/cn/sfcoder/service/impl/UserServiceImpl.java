@@ -9,11 +9,17 @@ import cn.sfcoder.po.User;
 import cn.sfcoder.po.enums.UserIdentity;
 import cn.sfcoder.service.UserService;
 import cn.sfcoder.util.Md5Util;
+import cn.sfcoder.util.TokenUtil;
 import cn.sfcoder.vo.ResponseVO;
+import cn.sfcoder.vo.UserVO;
 import cn.sfcoder.vo.http.UserHttpStatus;
+import com.power.common.util.IpUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

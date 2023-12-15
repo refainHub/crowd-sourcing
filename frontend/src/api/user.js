@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function login(data) {
   return request({
-    url: '/crowd-sourcing/user/login',
+    url: '/user/login',
     method: 'post',
     data
   })
@@ -11,7 +11,7 @@ export function login(data) {
 
 export function tryLogin() {
   return request({
-    url: '/crowd-sourcing/user/tryLogin',
+    url: '/user/tryLogin',
     method: 'get'
   })
 }

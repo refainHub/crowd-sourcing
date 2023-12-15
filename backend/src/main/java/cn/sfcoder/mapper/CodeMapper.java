@@ -2,6 +2,8 @@ package cn.sfcoder.mapper;
 
 import cn.sfcoder.po.Code;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 /**
 * @author Lenovo
@@ -9,6 +11,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 * @createDate 2023-11-17 22:42:20
 * @Entity cn.sfcoder.po.Code
 */
+@Mapper
+@Repository
 public interface CodeMapper extends BaseMapper<Code> {
 
 }

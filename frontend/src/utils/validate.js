@@ -6,6 +6,10 @@
  * @param {string} path
  * @returns {Boolean}
  */
+export const maxFileSize = 1024 * 1024 * 1024 * 2
+
+export const maxImageSize = 24 * 1024 * 1024
+
 export function isExternal(path) {
   return /^(https?:|mailto:|tel:)/.test(path)
 }
@@ -15,6 +19,5 @@ export function isExternal(path) {
  * @returns {Boolean}
  */
 export function validUsername(str) {
-  const valid_map = ['admin', 'editor']
-  return valid_map.indexOf(str.trim()) >= 0
+  return /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(str)
 }

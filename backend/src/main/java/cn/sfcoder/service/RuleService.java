@@ -12,7 +12,7 @@ import java.util.List;
  * @Version: 1.0
  */
 public interface RuleService {
-    ResponseVO getRules();
+//    ResponseVO getRules();
 
-    ResponseVO setRules(List<RuleVO> ids);
+//    ResponseVO setRules(List<RuleVO> ids);
 }

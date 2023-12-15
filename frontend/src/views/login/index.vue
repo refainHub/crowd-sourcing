@@ -1,6 +1,13 @@
 <template>
   <div class="login-container">
-    <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
+    <el-form
+      ref="loginForm"
+      :model="loginForm"
+      :rules="loginRules"
+      class="login-form"
+      auto-complete="on"
+      label-position="left"
+    >
 
       <div class="title-container">
         <h3 class="title">登录</h3>
@@ -34,28 +41,27 @@
           name="password"
           tabindex="2"
           auto-complete="on"
-          @keyup.enter.native="handleLogin"
+          @keyup.enter.native="login"
         />
         <span class="show-pwd" @click="showPwd">
           <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" />
         </span>
       </el-form-item>
 
-      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="login">登录</el-button>
-
+      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="login">
+        登录
+      </el-button>
       <div class="tips">
         <span><el-link href="#/register" target="_self">没有账号？点击注册</el-link></span>
         <span><el-link style="float: right" href="#/" target="_self">以访客身份访问</el-link></span>
       </div>
 
-    </el-form>
-  </div>
+    </el-form></div>
 </template>
 
 <script>
 import { validUsername } from '@/utils/validate'
 import request from '@/utils/request'
-
 
 export default {
   name: 'Login',
@@ -80,8 +86,8 @@ export default {
         password: ''
       },
       loginRules: {
-        username: [{ required: true, trigger: 'blur', validator: validateUsername }],
-        password: [{ required: true, trigger: 'blur', validator: validatePassword }]
+        username: [{ required: true, trigger: 'change', validator: validateUsername }],
+        password: [{ required: true, trigger: 'change', validator: validatePassword }]
       },
       loading: false,
       passwordType: 'password',
@@ -112,10 +118,10 @@ export default {
         if (valid) {
           request({
             method: 'post',
-            url: '/crowd-sourcing/user/login',
+            url: '/user/login',
             data: {
               email: this.loginForm.username,
-              password: this.loginForm.password
+              passwd: this.loginForm.password
             }
           }).then(res => {
             this.loading = true
@@ -140,11 +146,9 @@ export default {
 </script>
 
 <style lang="scss">
-/* 修复input 背景不协调 和光标变色 */
-/* Detail see https://github.com/PanJiaChen/vue-element-admin/pull/927 */
 
-$bg:#283443;
-$light_gray:#fff;
+$bg: #283443;
+$light_gray: #fff;
 $cursor: #fff;
 
 @supports (-webkit-mask: none) and (not (cater-color: $cursor)) {
@@ -187,9 +191,9 @@ $cursor: #fff;
 </style>
 
 <style lang="scss" scoped>
-$bg:#2d3a4b;
-$dark_gray:#889aa4;
-$light_gray:#eee;
+$bg: #2d3a4b;
+$dark_gray: #889aa4;
+$light_gray: #eee;
 
 .login-container {
   min-height: 100%;
