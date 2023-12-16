@@ -1,6 +1,7 @@
 package cn.sfcoder.po;
 
 import lombok.Data;
+import lombok.Setter;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  * @Version: 1.0
  */
 @Data
+@Setter
 public class UserWorkList {
     /**
      * 众包工人id

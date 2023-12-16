@@ -7,7 +7,9 @@ import cn.sfcoder.service.AttributeService;
 import cn.sfcoder.service.RuleService;
 import cn.sfcoder.service.UserService;
 import cn.sfcoder.util.CheckData;
+import cn.sfcoder.vo.AttributeVO;
 import cn.sfcoder.vo.ResponseVO;
+import cn.sfcoder.vo.RuleVOS;
 import cn.sfcoder.vo.UserVO;
 import cn.sfcoder.vo.http.UserHttpStatus;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,19 +70,19 @@ public class UserController {
         return userService.login(userDTO);
     }
 
-//    @CheckStatus(identity = UserIdentity.WORKER)
-//    @PostMapping("/init")
-//    public ResponseVO init(@RequestBody AttributeVO attributeVO) {
-//        return attributeService.init(attributeVO.toDTO());
-//    }
-//
-//    @GetMapping("/getRules")
-//    public ResponseVO getRules() {
-//        return ruleService.getRules();
-//    }
-//
-//    @PostMapping("/setRules")
-//    public ResponseVO setRules(@RequestBody RuleVOS ruleVOS) {
-//        return ruleService.setRules(ruleVOS.getRuleVOS());
-//    }
+    @CheckStatus(identity = UserIdentity.WORKER)
+    @PostMapping("/init")
+    public ResponseVO init(@RequestBody AttributeVO attributeVO) {
+        return attributeService.init(attributeVO.toDTO());
+    }
+
+    @GetMapping("/getRules")
+    public ResponseVO getRules() {
+        return ruleService.getRules();
+    }
+
+    @PostMapping("/setRules")
+    public ResponseVO setRules(@RequestBody RuleVOS ruleVOS) {
+        return ruleService.setRules(ruleVOS.getRuleVOS());
+    }
 }
