@@ -7,22 +7,25 @@
     <div class="right-menu">
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
-          <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar">
+          <img src='./Sidebar/1.jpg' class="user-avatar">
           <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
-          <router-link to="/">
+          <router-link to="/table">
             <el-dropdown-item>
               Home
             </el-dropdown-item>
           </router-link>
-          <a target="_blank" href="https://github.com/PanJiaChen/vue-admin-template/">
-            <el-dropdown-item>Github</el-dropdown-item>
-          </a>
-          <a target="_blank" href="https://panjiachen.github.io/vue-element-admin-site/#/">
-            <el-dropdown-item>Docs</el-dropdown-item>
-          </a>
-          <el-dropdown-item divided @click.native="logout">
+          <!--          <a target="_blank" href="https://github.com/PanJiaChen/vue-admin-template/">-->
+          <!--            <el-dropdown-item>Github</el-dropdown-item>-->
+          <!--          </a>-->
+          <!--          <a target="_blank" href="https://panjiachen.github.io/vue-element-admin-site/#/">-->
+          <!--            <el-dropdown-item>Docs</el-dropdown-item>-->
+          <!--          </a>-->
+          <el-dropdown-item v-if="login_show" divided @click.native="login()">
+            <span style="display:block;">Login</span>
+          </el-dropdown-item>
+          <el-dropdown-item v-if="!login_show" divided @click.native="logout">
             <span style="display:block;">Log Out</span>
           </el-dropdown-item>
         </el-dropdown-menu>
@@ -35,11 +38,20 @@
 import { mapGetters } from 'vuex'
 import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
+import { removeToken } from '@/utils/auth'
+import { resetRouter } from '@/router'
+import { getUserId, removeIdentity, removeUserId } from '@/utils/auth'
+import { tryLogin } from '@/api/user'
 
 export default {
   components: {
     Breadcrumb,
     Hamburger
+  },
+  data() {
+    return {
+      login_show: true
+    }
   },
   computed: {
     ...mapGetters([
@@ -47,13 +59,37 @@ export default {
       'avatar'
     ])
   },
+  created() {
+    this.tryLogin()
+  },
   methods: {
     toggleSideBar() {
       this.$store.dispatch('app/toggleSideBar')
     },
-    async logout() {
-      await this.$store.dispatch('user/logout')
-      this.$router.push(`/login?redirect=${this.$route.fullPath}`)
+    tryLogin() {
+      if (getUserId() === undefined) {
+        this.login_show = true
+      } else {
+        tryLogin().then(() => {
+          this.login_show = false
+        }).catch(() => {
+          this.login_show = true
+          removeUserId()
+          removeToken()
+          removeIdentity()
+        })
+      }
+    },
+    logout() {
+      removeToken()
+      resetRouter()
+      removeUserId()
+      removeIdentity()
+      this.$store.commit('user/RESET_STATE')
+      this.$router.push({ path: '/login' })
+    },
+    login() {
+      this.$router.push({ path: '/login' })
     }
   }
 }

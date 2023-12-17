@@ -109,9 +109,9 @@
 
 <script>
 import { getMyTask } from '@/api/table'
-import { checkWhetherPartTheTask, findTaskByTaskId, searchPublishedTask } from '../../api/table'
-import { getIdentity, getUserId } from '../../utils/auth'
-import { imageUrl } from '../../utils/request'
+import { checkWhetherPartTheTask, findTaskByTaskId, searchPublishedTask } from '@/api/table'
+import { getIdentity, getUserId } from '@/utils/auth'
+import { imageUrl } from '@/utils/request'
 
 export default {
   name: 'Login',
