@@ -1,9 +1,4 @@
 spring:
-  #  datasource:
-  #      url: jdbc:mysql://localhost:3306/collect?setUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&allowMultiQueries=true
-  #      driver-class-name: com.mysql.cj.jdbc.Driver
-  #      username: root
-  #      password: tzh444582
 
   servlet:
     multipart:
@@ -14,11 +9,14 @@ spring:
     url: jdbc:mysql://localhost:3306/collect?setUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&allowMultiQueries=true
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: 123456
+    password: 123456d
 
-
+#com:
+#  collect:
+#    po:
+#      enums:
 mybatis-plus:
-  typeEnumsPackage: com.collect.po.enums
+  typeEnumsPackage: cn.sfcoder.po.enums
   configuration:
     default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
   mapper-locations: classpath*:mapper/*Mapper.xml

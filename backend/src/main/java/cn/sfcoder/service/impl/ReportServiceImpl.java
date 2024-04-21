@@ -392,6 +392,11 @@ public class ReportServiceImpl implements ReportService {
         }
     }
 
+    /**
+     * 转换
+     * @param cluster_set
+     * @return
+     */
     private ClusterVO convert(String cluster_set) {
         cluster_set=cluster_set.substring(1,cluster_set.length()-1);
         String[] strings=cluster_set.split("##");
