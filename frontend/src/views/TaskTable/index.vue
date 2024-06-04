@@ -150,9 +150,9 @@
 <script>
 
 import { getAllTask, selectTaskByLabel } from '@/api/table'
-import { checkWhetherPartTheTask, findTaskByTaskId, partTask } from '@/api/table'
-import { getUserId, getIdentity, getFirst } from '@/utils/auth'
-import { imageUrl } from '@/utils/request'
+import { checkWhetherPartTheTask, findTaskByTaskId, partTask } from '../../api/table'
+import { getUserId, getIdentity, getFirst } from '../../utils/auth'
+import { imageUrl } from '../../utils/request'
 import request from '@/utils/request'
 
 export default {
@@ -217,7 +217,7 @@ export default {
           var userId = getUserId()
           request({
             method: 'post',
-            url: '/user/init',
+            url: '/collect/user/init',
             data: {
               userId: userId,
               preferTask: this.preferForm.prefer,

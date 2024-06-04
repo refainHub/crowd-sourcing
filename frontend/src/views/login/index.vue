@@ -118,7 +118,7 @@ export default {
         if (valid) {
           request({
             method: 'post',
-            url: '/user/login',
+            url: '/collect/user/login',
             data: {
               email: this.loginForm.username,
               passwd: this.loginForm.password

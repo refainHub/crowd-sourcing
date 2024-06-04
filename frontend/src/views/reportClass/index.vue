@@ -141,8 +141,8 @@
 import { findCoworkers, findSimilarReportsFromSameTask, lookReports, workerReport } from '../../api/report'
 import JSZip from 'jszip'
 import FileSaver from 'file-saver'
-import { imageUrl } from '@/utils/request'
-import { parseNormal } from '@/utils/parseAnnotation'
+import { imageUrl } from '../../utils/request'
+import { parseNormal } from '../../utils/parseAnnotation'
 
 export default {
   data() {
@@ -180,9 +180,9 @@ export default {
       this.filesToRar(path, this.name)
     },
     /** 文件打包
-     * arrImages:文件list:[Url:文件url...]
-     * filename 压缩包名
-     * */
+             * arrImages:文件list:[Url:文件url...]
+             * filename 压缩包名
+             * */
     filesToRar(arrImages, filename) {
       const _this = this
       const zip = new JSZip()

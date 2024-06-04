@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import { lookReports } from '@/api/report'
+import { lookReports } from '../../api/report'
 
 export default {
   data() {
@@ -87,29 +87,29 @@ export default {
 </script>
 
 <style>
-.face{
-  width: 80%;
-  align-self: center;
-}
+  .face{
+    width: 80%;
+    align-self: center;
+  }
 
-.list{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: 4% 2% 4% 2%;
-}
-.book{
-  min-width: 20%;
-  max-width: 40%;
-  width: 20%;
-  min-height: 40%;
-  max-height: 40%;
-  margin: 4% 2% 4% 2%;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  align-items: center;
-  font-size:13px;
-}
+  .list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 4% 2% 4% 2%;
+  }
+  .book{
+    min-width: 20%;
+    max-width: 40%;
+    width: 20%;
+    min-height: 40%;
+    max-height: 40%;
+    margin: 4% 2% 4% 2%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    font-size:13px;
+  }
 </style>
 

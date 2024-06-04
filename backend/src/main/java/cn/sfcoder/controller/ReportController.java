@@ -28,7 +28,7 @@ import java.util.List;
  */
 
 @RestController
-@RequestMapping("/report")
+@RequestMapping("/collect/report")
 public class ReportController {
 
 

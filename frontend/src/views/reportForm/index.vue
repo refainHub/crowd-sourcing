@@ -96,11 +96,11 @@
 
 <script>
 import axios from 'axios'
-import { getIdentity, getUserId } from '@/utils/auth'
-import { baseUrl, imageUrl } from '@/utils/request'
-import { maxImageSize } from '@/utils/validate'
-import { findLowQualityReport, findSimilarReportsFromSameTask, workerReport } from '@/api/report'
-import { parseNormal } from '@/utils/parseAnnotation'
+import { getIdentity, getUserId } from '../../utils/auth'
+import { baseUrl, imageUrl } from '../../utils/request'
+import { maxImageSize } from '../../utils/validate'
+import { findLowQualityReport, findSimilarReportsFromSameTask, workerReport } from '../../api/report'
+import { parseNormal } from '../../utils/parseAnnotation'
 
 export default {
   inject: ['reload'],
@@ -193,7 +193,7 @@ export default {
         }
       })
       this.loading = true
-      axios.post(baseUrl + '/report/commit', data, {
+      axios.post(baseUrl + '/collect/report/commit', data, {
         headers: { 'Content-Type': 'multipart/reportForm-data' }
       }).then(res => {
         this.$notify({

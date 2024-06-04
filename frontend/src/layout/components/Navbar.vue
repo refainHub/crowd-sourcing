@@ -40,8 +40,8 @@ import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
 import { removeToken } from '@/utils/auth'
 import { resetRouter } from '@/router'
-import { getUserId, removeIdentity, removeUserId } from '@/utils/auth'
-import { tryLogin } from '@/api/user'
+import { getUserId, removeIdentity, removeUserId } from '../../utils/auth'
+import { tryLogin } from '../../api/user'
 
 export default {
   components: {

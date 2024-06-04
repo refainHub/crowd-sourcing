@@ -118,7 +118,7 @@
 
 <script>
 
-import PasswordStrength from '@/components/PasswordStrength/index'
+import PasswordStrength from '@/components/PasswdStrength/index'
 
 import { validUsername } from '@/utils/validate'
 import request from '@/utils/request'
@@ -135,7 +135,7 @@ export default {
       }
     }
     const validateName = (rule, value, callback) => {
-      if (value.length === 0 || value.length > 10) {
+      if (value.length===0||value.length>10) {
         callback(new Error('用户名长度应大于0小于10'))
       } else {
         callback()
@@ -223,7 +223,7 @@ export default {
           if (this.loading) {
             request({
               method: 'post',
-              url: '/user/register',
+              url: '/collect/user/register',
               data: {
                 email: this.registerForm.username,
                 name:this.registerForm.name,

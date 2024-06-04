@@ -79,8 +79,8 @@
 </template>
 
 <script>
-import { getReportClassUnderTask, lookReports } from '@/api/report'
-import { imageUrl } from '@/utils/request'
+import { getReportClassUnderTask, lookReports } from '../../api/report'
+import { imageUrl } from '../../utils/request'
 
 export default {
   data() {
@@ -143,55 +143,55 @@ export default {
 </script>
 
 <style>
-.face {
-  width: 85%;
-  align-self: center;
-  margin-bottom: 4px;
-}
+  .face {
+    width: 85%;
+    align-self: center;
+    margin-bottom: 4px;
+  }
 
-.list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: 1% 2% 4% 2% !important;
-}
+  .list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 1% 2% 4% 2% !important;
+  }
 
-.book {
-  min-width: 20%;
-  max-width: 40%;
-  width: 20%;
-  min-height: 40%;
-  max-height: 40%;
-  height: 40%;
-  margin: 3% 2% 1% 2%;
-  font-size: 14px;
-}
+  .book {
+    min-width: 20%;
+    max-width: 40%;
+    width: 20%;
+    min-height: 40%;
+    max-height: 40%;
+    height: 40%;
+    margin: 3% 2% 1% 2%;
+    font-size: 14px;
+  }
 
-.book-content {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  align-items: center;
-  padding: 0;
-}
+  .book-content {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    padding: 0;
+  }
 
-.pagination {
-  position: fixed;
-  bottom: 0;
-  height: 10%;
-  width: 100%;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-}
+  .pagination {
+    position: fixed;
+    bottom: 0;
+    height: 10%;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-.name {
-  font-size: 16px;
-  line-height: 32px;
-}
+  .name {
+    font-size: 16px;
+    line-height: 32px;
+  }
 
-.el-divider--horizontal{
-  margin-top: 8px!important;
-  margin-bottom: 0px!important;
-}
+  .el-divider--horizontal{
+    margin-top: 8px!important;
+    margin-bottom: 0px!important;
+  }
 </style>

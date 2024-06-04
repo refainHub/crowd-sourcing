@@ -96,9 +96,9 @@
 <script>
 
 import { issue } from '@/api/task'
-import { update } from '@/api/task'
-import { getUserId } from '@/utils/auth'
-import { maxFileSize } from '@/utils/validate'
+import { update } from '../../api/task'
+import { getUserId } from '../../utils/auth'
+import { maxFileSize } from '../../utils/validate'
 
 export default {
   data() {

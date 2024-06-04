@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Version: 1.0
  */
 @RestController
-@RequestMapping("/work")
+@RequestMapping("/collect/work")
 public class WorkController {
 
     @Autowired

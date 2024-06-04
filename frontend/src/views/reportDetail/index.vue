@@ -13,7 +13,7 @@
           />
         </div>
         <el-button v-if="showSimialr" type="text" size="small" style="margin-left: 10px;" @click="findSimilarReports">查看推荐报告</el-button>
-        <!--        <el-button type="text" size="small" style="margin-left: 10px;" @click="findHistory()">查看历史报告</el-button>-->
+<!--        <el-button type="text" size="small" style="margin-left: 10px;" @click="findHistory()">查看历史报告</el-button>-->
         <el-dialog title="历史报告" :visible="showHistoryReports" :show-close="false">
           <el-table
             :data="historyReports"
@@ -257,16 +257,16 @@
 </template>
 
 <script>
-import { getIdentity, getUserId } from '@/utils/auth'
-import { imageUrl } from '@/utils/request'
+import { getIdentity, getUserId } from '../../utils/auth'
+import { imageUrl } from '../../utils/request'
 import {
   giveMarkAndComment,
   workerReport,
   getCommentsUnderReport,
   giveAnnotation,
   findSimilarReportsFromSameTask, findLowQualityReport, findCoworkers
-} from '@/api/report'
-import { parseToObject, parseToText } from '@/utils/parseAnnotation'
+} from '../../api/report'
+import { parseToObject, parseToText } from '../../utils/parseAnnotation'
 import JSZip from 'jszip'
 import FileSaver from 'file-saver'
 
@@ -599,40 +599,40 @@ export default {
 }
 </script>
 <style scoped>
-.images{
-  width: 150px;
-  display: inline;
-}
-.button{
-  display: flex;
-  align-content: center;
-  position: absolute;
-  left:0;
-  width: 30px;
-  height: 20px;
-  z-index: 3;
-  line-height: 5px;
-  justify-content: center;
-  align-items: center;
-}
-.text {
-  font-size: 14px;
-}
+  .images{
+    width: 150px;
+    display: inline;
+  }
+  .button{
+    display: flex;
+    align-content: center;
+    position: absolute;
+    left:0;
+    width: 30px;
+    height: 20px;
+    z-index: 3;
+    line-height: 5px;
+    justify-content: center;
+    align-items: center;
+  }
+  .text {
+    font-size: 14px;
+  }
 
-.item {
-  margin-bottom: 18px;
-}
+  .item {
+    margin-bottom: 18px;
+  }
 
-.clearfix:before,
-.clearfix:after {
-  display: table;
-  content: "";
-}
-.clearfix:after {
-  clear: both
-}
-.box-card {
-  width: 100%;
-}
+  .clearfix:before,
+  .clearfix:after {
+    display: table;
+    content: "";
+  }
+  .clearfix:after {
+    clear: both
+  }
+  .box-card {
+    width: 100%;
+  }
 </style>
 
